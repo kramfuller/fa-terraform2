@@ -1,0 +1,5 @@
+SSH_PRIVATE_KEY="${WORKSPACE}/.ssh/id_rsa_stage_keypair"
+if [ ! -d ${WORKSPACE}/.ssh ]; then mkdir ${WORKSPACE}/.ssh; fi
+cat $STAGE_KEYPAIR > $SSH_PRIVATE_KEY
+chmod 700 ${WORKSPACE}/.ssh && chmod 600 $SSH_PRIVATE_KEY
+tar cvf ${WORKSPACE}/id_rsa_stage_keypair.tar --no-recursion ${WORKSPACE}/.ssh $SSH_PRIVATE_KEY
